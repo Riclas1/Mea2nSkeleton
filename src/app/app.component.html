@@ -1,3 +1,13 @@
-<h1>
-  {{title}}
-</h1>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <app-navbartop></app-navbartop>
+  <!--<app-navbarleft></app-navbarleft>-->
+  <main class="mdl-layout__content">
+    <section>
+      <body>
+        <div class="page-content">
+          <router-outlet></router-outlet>
+        </div>
+      </body>
+    </section>
+  </main>
+</div>

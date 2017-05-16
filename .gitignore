@@ -7,14 +7,6 @@
 # dependencies
 /node_modules
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
@@ -30,11 +22,12 @@
 npm-debug.log
 testem.log
 /typings
+src/libs/*
+!src/inspinia
+
 
 # e2e
 /e2e/*.js
 /e2e/*.map
 
-#System Files
-.DS_Store
-Thumbs.db
+
