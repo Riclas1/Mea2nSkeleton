@@ -20,6 +20,8 @@
 npm-debug.log
 testem.log
 /typings
+
+#styles
 src/styles/*
 !src/styles/inspinia
 
