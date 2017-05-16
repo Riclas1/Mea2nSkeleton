@@ -1,5 +1,3 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
 # compiled output
 /dist
 /tmp
@@ -22,8 +20,8 @@
 npm-debug.log
 testem.log
 /typings
-src/libs/*
-!src/inspinia
+src/styles/*
+!src/styles/inspinia
 
 
 # e2e
