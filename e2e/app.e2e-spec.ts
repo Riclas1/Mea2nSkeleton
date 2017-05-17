@@ -1,10 +1,10 @@
-import { Mea2nStartUpPage } from './app.po';
+import { P1Page } from './app.po';
 
-describe('mea2n-start-up App', function() {
-  let page: Mea2nStartUpPage;
+describe('p1 App', () => {
+  let page: P1Page;
 
   beforeEach(() => {
-    page = new Mea2nStartUpPage();
+    page = new P1Page();
   });
 
   it('should display message saying app works', () => {

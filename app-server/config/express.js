@@ -26,7 +26,7 @@ module.exports = function(app, config,  passport, mongoose){
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(cookieParser('EssertGmbHKey'));
-    app.use(express.static(config.rootpath + './src/dist/'));
+    app.use(express.static(config.rootpath + './dist/'));
     
     /**********Session Setup*********/
     app.use(session({

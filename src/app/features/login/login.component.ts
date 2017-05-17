@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { AuthService, Userdata } from './../../services/login.service';
+import { AuthService } from './../../services/service.loginUser';
 import { Router } from '@angular/router';
-import { LoginUserEventService } from './../../events/event.loginUser.service';
-import { LoginUserdata } from './../../shared/shared.loginUserData';
+import { LoginUserEventService } from './../../events/event.loginUser';
+import { currentUserdata } from './../../shared/shared.currentUserData';
+import { loginUserdata } from './../../shared/shared.loginUserDate'
 
 
 
@@ -26,7 +27,7 @@ export class AppLoginComponent {
   };
 
   loginButton() {
-    let _user = new Userdata(this.userName, this.userPassword);
+    let _user = new loginUserdata(this.userName, this.userPassword);
     let _loginUser;
 
     this.authService.Login(_user)
@@ -34,7 +35,7 @@ export class AppLoginComponent {
       data => {
         console.log(data);
         if (data.state === 'success') {
-          _loginUser = new LoginUserdata(data.user.username, data.user.level, true);
+          _loginUser = new currentUserdata(data.user.username, data.user.level, true);
           this.loginUserShared.emitChange(_loginUser);
           this.router.navigate(['main']);
         }

@@ -1,6 +1,6 @@
-import { browser, element, by } from 'protractor';
+import { browser, by, element } from 'protractor';
 
-export class Mea2nStartUpPage {
+export class P1Page {
   navigateTo() {
     return browser.get('/');
   }

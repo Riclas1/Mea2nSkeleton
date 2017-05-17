@@ -1,6 +1,6 @@
 import {Component, Input, OnInit } from '@angular/core';
-import {LanguageListService } from './app.navLaglist.service'
-import { LoginUserEventService } from './../../events/event.loginUser.service';
+import {LanguageList } from './../../shared/shared.langData-list'
+import { LoginUserEventService } from './../../events/event.loginUser';
 
 
 
@@ -14,20 +14,20 @@ class MenuItems{
 }
 
 @Component({
-    moduleId: module.id,
     selector:'app-navbartop',
     styleUrls:['./app.navTop.css'],
-    templateUrl:'./app.navTop.html'
+    templateUrl:'./app.navTop.html',
+   
 })
 
-export class AppNavTop  implements OnInit{
+export class AppNavTop implements OnInit{
     _menuItems : Array<MenuItems>;
     _picCompany : any;
     _hrefCompany : any;
     _currentUser: string;
     _langservice = this.langservice.getLanguagelist();
     
-    constructor(private langservice : LanguageListService,
+    constructor(private langservice : LanguageList,
             private loginUsershared : LoginUserEventService
         ){
           loginUsershared.changeEmitted$.subscribe(

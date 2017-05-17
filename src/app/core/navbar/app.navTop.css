@@ -20,14 +20,6 @@
     background: #09c;
 }
 
-.md-title-companysign > i {
-  /*background-image: url("assets/ng.png");*/
-  background-image: url("../assets/images/AtlasLogo.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  padding: 1em 2em;
-}
-
 .mdl-layout__header-row {
   height: 56px;
   padding: 0 16px 0 72px;

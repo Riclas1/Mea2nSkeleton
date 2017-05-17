@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import './rxjs-extensions';
@@ -7,10 +7,10 @@ import './rxjs-extensions';
 //Componenten
 import { AppComponent } from './app.component';
 import { AppNavTop } from './core/navbar/app.navTop';
-import { LanguageListService } from './core/navbar/app.navLaglist.service';
+import { LanguageList } from './shared/shared.langData-list';
 import { AppRoutingModule , routableComponents } from './app.routing.module';
-import { LoginUserEventService } from './events/event.loginUser.service';
-import { ApiService } from './services/api.service'
+import { LoginUserEventService } from './events/event.loginUser';
+import { ApiService } from './services/service.apiCalls'
 
 @NgModule({
   declarations: [
@@ -25,12 +25,14 @@ import { ApiService } from './services/api.service'
     AppRoutingModule
   ],
   providers: [
-    LanguageListService,
+    LanguageList,
     LoginUserEventService,
     ApiService
     
   ],
   bootstrap: [AppComponent
-  ]
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  
 })
 export class AppModule { }
