@@ -1,29 +1,12 @@
 var express = require('express'),
+	isAuthenticated = require('./../config/auth/isAuthenticated.routes'),
 	router = express.Router();
 	
-
-//Used for routes that must be authenticated.
-function isAuthenticated (req, res, next) {
-	// if user is authenticated in the session, call the next() to call the next request handler 
-	// Passport adds this method to request object. A middleware is allowed to add properties to
-	// request and response objects
-	if (req.isAuthenticated()){
-		console.log('auth gültig');
-		return next();
-	};
-
-	// if the user is not authenticated then redirect him to the login page
-	console.log('auth ungültig');
-	return res.status(403).location('/').end();
-
-	
-};
-
 //Register the authentication middleware
 router.use('/',isAuthenticated);
 
 //api for all posts
-router.route('/')
+router.route('/post')
 	
 	//create a new post
 	.post(function(req, res){

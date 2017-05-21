@@ -1,7 +1,5 @@
 module.exports = function (req, res, next) {
-	Console.log(req.session);
-
-    // if user is authenticated in the session, call the next() to call the next request handler 
+	// if user is authenticated in the session, call the next() to call the next request handler 
 	if (req.isAuthenticated()){
 		console.log('auth gültig');
 		return next();

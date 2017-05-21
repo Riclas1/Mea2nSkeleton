@@ -1,4 +1,4 @@
-export class currentUserdata {
+export class CurrentUserData {
   username : String;
   level :String;
   auth : boolean;

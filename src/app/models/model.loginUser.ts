@@ -1,4 +1,4 @@
-export class loginUserdata {
+export class LoginUserData {
   username: String;
   password: String;
 

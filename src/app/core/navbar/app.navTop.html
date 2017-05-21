@@ -1,10 +1,10 @@
 <nav class="navbar navbar-static-top navbar-top-links mdl-layout__header" role="navigation" style="margin-bottom: 0">
     <div class="row">
         <div class="col-md-1 ">
-            <img [src]="_picCompany" class="" height="106px" weight="220px" />
+            <img [src]="picCompany" class="" height="106px" weight="220px" />
         </div>
         <div class="col-md-4 text-center" style="margin-top: 3%; margin-left: 4%">
-            <strong>Test App</strong>
+            <strong id="name">Test App</strong>
         </div>
         <div class="col-md-1" style="margin-top: 3%">
             <li class="dropdown ">
@@ -62,7 +62,7 @@
                     <i class="fa fa-globe" style="margin-left: -20%; color:#337ab7"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
-                    <li *ngFor="let item of _langservice">
+                    <li *ngFor="let item of langservice">
                         <div class="dropdown-messages-box">
                             <a href="#">
                                 <img alt="image" class="img-circle" [src]="item.src">
@@ -75,14 +75,14 @@
             </li>
         </div>
         <div class="container" style="margin-top: 3%">
-            <b>Wilkommen User: {{_currentUser}}</b>
-            <button class="btn btn-outline btn-default">
-                <a href="">
+            <b>Wilkommen User: {{currentUser}}</b>
+            <button *ngIf="!authenticated" class="btn btn-outline btn-default" (click)="login()">
+                <a>
                     <i class="fa fa-sign-in"></i> Log in
                 </a>
             </button>
-            <button class="btn btn-outline btn-default" ng-show="authenticated" ng-click="logout()">
-                <a href="" >
+            <button *ngIf="authenticated" class="btn btn-outline btn-default" (click)="logout()">
+                <a>
                     <i class="fa fa-sign-out"></i> Log out
                 </a>
            </button>
@@ -92,7 +92,7 @@
         </div>
     </div>
     <div class="row ">
-        <a *ngFor="let item of _menuItems" class="nav-link col-md-1" [routerLink]="item.Link" routerLinkActive="router-link-active"
+        <a *ngFor="let item of menuItems" class="nav-link col-md-1" [routerLink]="item.Link" routerLinkActive="router-link-active"
             href="">{{item.Name}}</a>
     </div>
 </nav>

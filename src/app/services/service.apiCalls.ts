@@ -17,12 +17,9 @@ export class ApiService {
     Get() {
         let domain = new DomainData()
         let headers = new Headers(); // ... Set content type to JSON
-        headers.append('withCredentials', 'true');
-        headers.append('content-type', 'application/json');
-        headers.append('cache-control', 'no-cache');
         let options = new RequestOptions({ headers: headers }); // Create a request option
 
-        return this.http.get(domain.domain + '/api', headers)
+        return this.http.get(domain.domain + '/api/post', headers)
             .map((res: Response) => res.json())
             .catch((error) => {return this.handleError(error)});
     };
