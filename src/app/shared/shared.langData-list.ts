@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-;@Injectable()
+@Injectable()
 export class LanguageList {
   getLanguagelist = () => [
     { src: '../../assets/images/DE.png', Name: 'DE' },

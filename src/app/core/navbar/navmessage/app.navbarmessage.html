@@ -1,0 +1,21 @@
+<li class="dropdown ">
+    <a class="dropdown-toggle count-info" data-toggle="dropdown">
+        <i class="fa fa-bell" style="margin-left: -30%; color:#337ab7"></i> <span class="label label-warning">{{counter}}</span>
+    </a>
+    <ul class="dropdown-menu dropdown-messages">
+        <li *ngFor="let item of messagelist">
+            <div class="dropdown-messages-box">
+                <a href="#" class="pull-left">
+                    <img alt="image" class="img-circle" [src]="item.img">
+                </a>
+                <div class="media-body">
+                    <small class="pull-right text-navy">{{item.date | amTimeAgo}}</small>
+                    <strong style="color:black">{{ item.message }}</strong>
+                    <br>
+                    <small class="text-muted">{{item.date | date:'dd/MM/yyyy @ HH:mm'}}</small>
+                </div>
+                <div class="divider"></div>
+            </div>
+        </li>
+    </ul>
+</li>

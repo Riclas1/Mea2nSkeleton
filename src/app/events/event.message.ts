@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
-export class LoginUserEventService {
+export class MessageEventService {
     // Observable string sources
     private emitChangeSource = new Subject<any>();
     // Observable string streams

@@ -29,7 +29,7 @@ export class AuthService {
         let resjson = res.json();
         if (resjson.state === 'success' && !(resjson.user === undefined)) {
           let sessiondata = new CurrentUserData(resjson.user.username, resjson.user.level, true);
-          //this.setCurrentUser(sessiondata);
+          
           this.storage.store('currentuser', sessiondata);
           return Observable.of(true);
         }
@@ -96,10 +96,6 @@ export class AuthService {
     return Observable.throw(msg);
   }
 
-  //Event Service Beispiel
-  //this.setCurrentUser(sessiondata);
-  /*setCurrentUser(user: CurrentUserdata) {
-    this.loginusereventservice.emitChange(user);
-  }*/
+  
 
 }

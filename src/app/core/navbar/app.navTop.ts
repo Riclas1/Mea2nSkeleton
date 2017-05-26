@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LanguageList } from './../../shared/shared.langData-list'
-import { LoginUserEventService } from './../../events/event.loginUser';
 import { AuthService } from './../../services/service.loginUser';
 import { SessionStorageService } from 'ng2-webstorage';
 import { Router } from '@angular/router';
 import { CurrentUserData } from './../../models/model.currentUser';
-
+import { MessageEventService } from './../../events/event.message';
+import { Message } from './../../models/model.message';
+import { MessageStatus } from './../../enum/enum.messageStatus';
 
 class MenuItems {
     public Name: string;
@@ -20,8 +21,6 @@ class MenuItems {
     selector: 'app-navbartop',
     styleUrls: ['./app.navTop.css'],
     templateUrl: './app.navTop.html',
-
-
 })
 
 export class AppNavTop implements OnInit {
@@ -33,15 +32,12 @@ export class AppNavTop implements OnInit {
     authenticated: boolean;
 
     constructor(private langservicelist: LanguageList,
-        private loginUsershared: LoginUserEventService,
         private authservice: AuthService,
         private localst: SessionStorageService,
         private router: Router,
+        private messageeventservice: MessageEventService
     ) {
-        /*loginUsershared.changeEmitted$.subscribe(
-            data => {
-                this.currentUser = data.username;
-            });*/
+        
     };
 
     ngOnInit() {
@@ -65,7 +61,12 @@ export class AppNavTop implements OnInit {
     };
 
     login() {
-        this.router.navigate(['login']);
+        //Event Service Beispiel
+        let m = new Message('jetzt', Date.now(), MessageStatus.Info)
+        this.messageeventservice.emitChange(m);
+ 
+        
+        //this.router.navigate(['login']);
     }
 
 }

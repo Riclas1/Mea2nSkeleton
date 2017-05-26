@@ -11,17 +11,20 @@ import './rxjs-extensions';
 import { AppComponent } from './app.component';
 import { AppNavTop } from './core/navbar/app.navTop';
 import { LanguageList } from './shared/shared.langData-list';
+import { NavbarMessage } from './core/navbar/navmessage/app.navbarmessage';
 import { AppRoutingModule, routableComponents } from './app.routing.module';
-import { LoginUserEventService } from './events/event.loginUser';
+import { MessageEventService } from './events/event.message';
 import { ApiService } from './services/service.apiCalls';
 import { AuthService } from './services/service.loginUser';
 import { CurrentUserData } from './models/model.currentUser';
 import { SessionStorageService } from 'ng2-webstorage';
+import { MomentModule } from 'angular2-moment';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavTop,
+    NavbarMessage,
     routableComponents
   ],
   imports: [
@@ -29,12 +32,13 @@ import { SessionStorageService } from 'ng2-webstorage';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    Ng2Webstorage.forRoot({ prefix: 'MeanApps', separator: '.', caseSensitive: true })
+    Ng2Webstorage.forRoot({ prefix: 'MeanApps', separator: '.', caseSensitive: true }),
+    MomentModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     LanguageList,
-    LoginUserEventService,
+    MessageEventService,
     ApiService,
     AuthService
 
